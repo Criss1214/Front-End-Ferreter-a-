@@ -1,0 +1,256 @@
+:root {
+  --negro: #1d1d1b;
+  --negro-suave: #2b2b28;
+  --amarillo: #f5b800;
+  --amarillo-oscuro: #d99f00;
+  --amarillo-claro: #fff6d6;
+  --concreto: #e8e9ea;
+  --acero: #c9cbcd;
+  --gris: #5b5b56;
+  --blanco: #ffffff;
+  --titulos: "Oswald", "Arial Narrow", Impact, "Segoe UI", sans-serif;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--negro);
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--concreto);
+}
+
+/* ------------------------------------------------------------------
+   Cabecera de taller con cinta métrica
+------------------------------------------------------------------ */
+.cabecera {
+  background: var(--negro);
+  color: var(--blanco);
+}
+
+.cabecera-interior {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 20px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.cabecera img {
+  display: block;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.cabecera h1 {
+  margin: 0;
+  font-family: var(--titulos);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.cabecera p {
+  margin: 4px 0 0;
+  color: var(--acero);
+}
+
+/* Cinta métrica: amarilla, con marcas cada 8 px y una más larga cada 40 px */
+.cinta {
+  height: 18px;
+  background-color: var(--amarillo);
+  background-image:
+    repeating-linear-gradient(90deg, var(--negro) 0 2px, transparent 2px 40px),
+    repeating-linear-gradient(90deg, var(--negro) 0 1px, transparent 1px 8px);
+  background-size: 100% 100%, 100% 8px;
+  background-repeat: no-repeat;
+  background-position: 0 0, 0 0;
+  border-bottom: 3px solid var(--negro);
+}
+
+/* ------------------------------------------------------------------
+   Lista de reportes
+------------------------------------------------------------------ */
+.pagina {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.reporte {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px 16px 16px;
+  background: var(--blanco);
+  border: 1px solid var(--acero);
+  border-left: 6px solid var(--amarillo);
+  border-radius: 4px;
+}
+
+.icono {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  background: var(--negro);
+  color: var(--amarillo);
+  border-radius: 4px;
+}
+
+.icono svg {
+  width: 28px;
+  height: 28px;
+}
+
+.texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.reporte h2 {
+  margin: 0;
+  font-family: var(--titulos);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.reporte p {
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+  color: var(--gris);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------------
+   Botones
+------------------------------------------------------------------ */
+.boton {
+  font: inherit;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 4px;
+  border: 2px solid var(--negro);
+  cursor: pointer;
+}
+
+.boton:disabled {
+  opacity: 0.55;
+  cursor: progress;
+}
+
+.boton:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--negro);
+  outline-offset: 2px;
+}
+
+.primario {
+  background: var(--amarillo);
+  color: var(--negro);
+  box-shadow: 0 3px 0 var(--negro);
+}
+
+.primario:hover:not(:disabled) {
+  background: var(--amarillo-oscuro);
+}
+
+.primario:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--negro);
+}
+
+.secundario {
+  background: var(--blanco);
+  color: var(--negro);
+}
+
+.secundario:hover:not(:disabled) {
+  background: var(--concreto);
+}
+
+.boton.texto {
+  flex: none;
+  background: none;
+  border-color: transparent;
+  color: var(--gris);
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------
+   Diálogo del filtro
+------------------------------------------------------------------ */
+.dialogo {
+  width: min(440px, calc(100vw - 32px));
+  border: 2px solid var(--negro);
+  border-top: 14px solid var(--amarillo);
+  border-radius: 4px;
+  padding: 24px;
+  color: var(--negro);
+}
+
+.dialogo::backdrop {
+  background: rgba(29, 29, 27, 0.65);
+}
+
+.dialogo h2 {
+  margin: 0 0 16px;
+  font-family: var(--titulos);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.dialogo label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.dialogo input {
+  width: 100%;
+  font: inherit;
+  padding: 9px 10px;
+  border: 2px solid var(--negro);
+  border-radius: 4px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 640px) {
+  .cabecera h1 {
+    font-size: 1.7rem;
+  }
+
+  .reporte {
+    flex-wrap: wrap;
+  }
+
+  .texto {
+    flex-basis: calc(100% - 80px);
+  }
+
+  .acciones {
+    width: 100%;
+  }
+}
